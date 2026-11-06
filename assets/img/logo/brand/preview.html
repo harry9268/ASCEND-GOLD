@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ascend Gold · Logo</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#0A0A0A; --panel:#111; --line:#2a2418; --gold:#C9A35A; --text:#EDE6D8; --muted:#8a8274; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.5 system-ui, sans-serif; padding:40px 16px 64px; }
+  main { max-width:1180px; margin:0 auto; }
+  h1 { font-weight:400; letter-spacing:.3em; font-size:13px; color:var(--gold); text-transform:uppercase; margin:0 0 4px; }
+  p.lead { color:var(--muted); margin:0 0 32px; }
+  h2 { font-weight:400; font-size:12px; letter-spacing:.25em; text-transform:uppercase; color:var(--muted); margin:40px 0 12px; border-top:1px solid var(--line); padding-top:20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:16px; }
+  figure { margin:0; background:var(--panel); border:1px solid var(--line); padding:28px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; min-height:260px; }
+  figure.checker { background-color:#151515; background-image:linear-gradient(45deg,#1d1d1d 25%,transparent 25%,transparent 75%,#1d1d1d 75%),linear-gradient(45deg,#1d1d1d 25%,transparent 25%,transparent 75%,#1d1d1d 75%); background-size:20px 20px; background-position:0 0,10px 10px; }
+  figure img { max-width:100%; height:auto; }
+  figcaption { font-size:12px; color:var(--muted); font-family:ui-monospace, Consolas, monospace; }
+  .nav { width:100%; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding:10px 4px; }
+  .nav span { font-size:10px; letter-spacing:.15em; color:var(--text); margin-left:18px; }
+  .sizes { display:flex; align-items:flex-end; gap:22px; flex-wrap:wrap; justify-content:center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ascend Gold · Identidad</h1>
+  <p class="lead">Todas las versiones del logo sobre fondo negro (#0A0A0A). Las versiones transparentes se muestran sobre cuadrícula para comprobar el canal alfa.</p>
+
+  <h2>1 · Vertical completo</h2>
+  <div class="grid">
+    <figure><img src="svg/logo-full-vertical-on-black.svg" width="520" alt="Ascend Gold vertical sobre negro"><figcaption>logo-full-vertical-on-black.svg</figcaption></figure>
+    <figure class="checker"><img src="svg/logo-full-vertical.svg" width="520" alt="Ascend Gold vertical transparente"><figcaption>logo-full-vertical.svg (transparente)</figcaption></figure>
+  </div>
+
+  <h2>2 · Horizontal (navbar)</h2>
+  <div class="grid">
+    <figure><img src="svg/logo-horizontal-on-black.svg" width="460" alt="Ascend Gold horizontal sobre negro"><figcaption>logo-horizontal-on-black.svg</figcaption></figure>
+    <figure class="checker"><img src="svg/logo-horizontal.svg" width="460" alt="Ascend Gold horizontal transparente"><figcaption>logo-horizontal.svg (transparente)</figcaption></figure>
+  </div>
+  <figure style="margin-top:16px;min-height:auto;padding:16px 24px">
+    <div class="nav"><img src="svg/logo-horizontal.svg" style="height:40px;width:auto" alt="Ascend Gold"><div><span>ABOUT</span><span>STRATEGY</span><span>SOLUTIONS</span><span>INSIGHTS</span></div></div>
+    <figcaption>simulación en navbar · 40 px de alto</figcaption>
+  </figure>
+
+  <h2>3 · Icono</h2>
+  <div class="grid">
+    <figure><img src="svg/icon-on-black.svg" width="260" alt="Icono Ascend Gold sobre negro"><figcaption>icon-on-black.svg</figcaption></figure>
+    <figure class="checker"><img src="svg/icon.svg" width="260" alt="Icono Ascend Gold transparente"><figcaption>icon.svg (transparente)</figcaption></figure>
+    <figure><div class="sizes"><img src="svg/icon.svg" width="128" alt=""><img src="svg/icon.svg" width="64" alt=""><img src="svg/icon.svg" width="32" alt=""><img src="svg/icon.svg" width="16" alt=""></div><figcaption>128 · 64 · 32 · 16 px</figcaption></figure>
+  </div>
+
+  <h2>4 · PNG exportados</h2>
+  <div class="grid">
+    <figure><img src="png/logo-full-vertical-on-black-1024.png" width="420" alt=""><figcaption>png/logo-full-vertical-on-black-1024.png</figcaption></figure>
+    <figure><img src="png/logo-horizontal-on-black-1024.png" width="420" alt=""><figcaption>png/logo-horizontal-on-black-1024.png</figcaption></figure>
+    <figure class="checker"><img src="png/icon-512.png" width="220" alt=""><figcaption>png/icon-512.png</figcaption></figure>
+  </div>
+</main>
+</body>
+</html>

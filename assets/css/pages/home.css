@@ -1,0 +1,190 @@
+/* ==========================================================================
+   ASCEND GOLD · pages/home.css
+   Estilos exclusivos de la página de inicio (y bloques reutilizados en
+   páginas interiores: mármol, Tierra, edificio, CTA final).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Hero a pantalla completa (montaña al atardecer)
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative; isolation: isolate;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center;
+  padding: calc(var(--header-h) + 2.5rem) 0 4rem;
+  overflow: hidden;
+}
+.hero__bg { position: absolute; inset: 0; z-index: -2; }
+.hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 40%; }
+/* Tratamiento oscuro y cálido sobre la foto */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 45% at 66% 30%, rgba(201, 162, 74, 0.16), transparent 70%),
+    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 40%, rgba(10,10,10,0.92) 100%);
+}
+.hero__inner { width: 100%; display: grid; gap: clamp(3rem, 2rem + 4vh, 5rem); }
+
+/* Bloque de marca centrado (logo + ASCEND GOLD + lema) */
+.hero__brand { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.hero__logo { position: relative; width: clamp(96px, 70px + 6vw, 150px); margin-bottom: 1.5rem; }
+.hero__logo img { width: 100%; height: auto; filter: drop-shadow(0 6px 24px rgba(201, 162, 74, 0.25)); }
+.hero__logo .sparkle { left: 59.9%; top: 9.9%; width: 46%; height: 46%; }
+.hero__title {
+  font-family: var(--f-brand); font-weight: 400;
+  font-size: clamp(2rem, 1.1rem + 3.2vw, 3.6rem);
+  letter-spacing: 0.24em; margin-right: -0.24em; /* compensa el tracking final */
+  line-height: 1.1; color: var(--c-text);
+  margin-bottom: 1.25rem;
+}
+.hero__brand .motto { margin-right: -0.55em; }
+
+/* Titular con línea vertical: HIGHER THAN YESTERDAY */
+.hero__claim { max-width: 520px; }
+.hero__claim h2 {
+  font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.08;
+  margin-bottom: 1.25rem;
+}
+.hero__claim p { color: var(--c-text); opacity: 0.85; margin-bottom: 2rem; max-width: 34ch; }
+
+@media (max-width: 767px) {
+  .hero__bg img { object-position: 28% 30%; }
+  .hero::before {
+    background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.45) 35%, rgba(10,10,10,0.95) 100%);
+  }
+}
+@media (min-width: 1024px) {
+  .hero::before {
+    background:
+      radial-gradient(ellipse 45% 50% at 72% 28%, rgba(201, 162, 74, 0.14), transparent 70%),
+      linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.6) 38%, rgba(10,10,10,0.1) 70%),
+      linear-gradient(0deg, rgba(10,10,10,0.95) 0%, transparent 35%);
+  }
+  .hero__inner { grid-template-columns: minmax(0, 720px); }
+  .hero__brand { padding-top: 2vh; }
+}
+
+/* Indicador de scroll */
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+  width: 44px; height: 44px; display: grid; place-items: center; color: var(--c-gold);
+}
+.scroll-cue svg { width: 22px; height: 12px; animation: ag-bob 2.4s ease-in-out infinite; }
+@keyframes ag-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* --------------------------------------------------------------------------
+   2. Filosofía sobre mármol negro con vetas doradas
+   -------------------------------------------------------------------------- */
+.marble { position: relative; isolation: isolate; overflow: hidden; text-align: center; }
+.marble__bg { position: absolute; inset: 0; z-index: -2; }
+.marble__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.marble .container--narrow { max-width: calc(1040px + var(--gutter) * 2); }
+.marble::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 55% 70% at 50% 50%, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.55) 60%, rgba(10,10,10,0.25) 100%);
+}
+.marble .label--lines { margin-bottom: 1.75rem; }
+.marble__phrase {
+  font-family: var(--f-title); font-weight: 400;
+  font-size: clamp(1.6rem, 1rem + 2.2vw, 2.9rem);
+  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.marble p { max-width: 600px; margin-inline: auto; color: var(--c-text); opacity: 0.8; }
+.marble__cue { display: inline-block; margin-top: 2rem; color: var(--c-gold); }
+.marble__cue svg { width: 22px; height: 12px; }
+
+/* --------------------------------------------------------------------------
+   3. Bloque Tierra de noche + GLOBAL MINDS
+   -------------------------------------------------------------------------- */
+.earth .split__media { min-height: 360px; background: var(--c-black); }
+.earth .split__media img { object-position: 30% 50%; }
+.earth .split__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 55%, rgba(10,10,10,0.85)), radial-gradient(ellipse at 30% 60%, rgba(201,162,74,0.12), transparent 60%);
+}
+@media (max-width: 1023px) {
+  .earth .split__media::after { background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.9)); }
+}
+
+/* --------------------------------------------------------------------------
+   4. Edificio de cristal con logo dorado reflejado
+   -------------------------------------------------------------------------- */
+.tower { position: relative; isolation: isolate; overflow: hidden; background: var(--c-black); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.tower__grid { display: grid; }
+@media (min-width: 1024px) {
+  .tower__grid { grid-template-columns: 1fr 1.1fr; min-height: 640px; }
+  /* Alinea el texto con el borde izquierdo del contenedor general */
+  .tower__body { max-width: none; margin: 0; padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2)); padding-right: 2rem; }
+}
+.tower__body { padding-block: clamp(4rem, 3rem + 4vw, 7rem); display: flex; flex-direction: column; justify-content: center; }
+.tower__kicker { margin-bottom: 1.75rem; color: var(--c-muted); letter-spacing: 0.5em; }
+.tower__title { font-family: var(--f-brand); font-size: clamp(2.6rem, 1.6rem + 4vw, 5rem); line-height: 1.05; letter-spacing: 0.06em; margin-bottom: 1.75rem; text-transform: uppercase; }
+.tower__title span { display: block; }
+.tower__body p:not(.label) { font-size: var(--fs-lead); color: var(--c-text); opacity: 0.85; max-width: 26ch; margin-bottom: 2rem; }
+
+.tower__media { position: relative; min-height: 420px; overflow: hidden; }
+.tower__media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+.tower__media::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg, var(--c-black) 0%, rgba(10,10,10,0.3) 30%, transparent 60%),
+    linear-gradient(0deg, rgba(10,10,10,0.8), transparent 40%),
+    radial-gradient(ellipse 40% 40% at 62% 46%, rgba(201,162,74,0.22), transparent 70%);
+}
+@media (max-width: 1023px) {
+  .tower__media::before { background: linear-gradient(180deg, var(--c-black) 0%, transparent 30%, transparent 70%, var(--c-black)), radial-gradient(ellipse 40% 40% at 55% 50%, rgba(201,162,74,0.2), transparent 70%); }
+}
+/* Logo montado sobre la fachada con perspectiva + reflejo dorado */
+.tower__emblem {
+  position: absolute; z-index: 2; left: 58%; top: 46%;
+  width: clamp(120px, 18vw, 230px);
+  transform: translate(-50%, -50%) perspective(900px) rotateY(-24deg);
+}
+.tower__emblem img { width: 100%; height: auto; filter: drop-shadow(0 0 18px rgba(201,162,74,0.45)) drop-shadow(0 0 2px rgba(230,199,122,0.8)); }
+.tower__emblem .sparkle { left: 59.9%; top: 9.9%; width: 55%; height: 55%; }
+.tower__emblem::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255,240,200,0.55) 50%, transparent 70%);
+  -webkit-mask: url("../../img/logo/logo-icon.svg") center / contain no-repeat;
+  mask: url("../../img/logo/logo-icon.svg") center / contain no-repeat;
+  animation: ag-sheen 6s ease-in-out infinite;
+}
+/* Reflejo en el cristal */
+.tower__reflection {
+  position: absolute; z-index: 2; left: 58%; top: calc(46% + clamp(120px, 18vw, 230px) * 0.95);
+  width: clamp(120px, 18vw, 230px);
+  transform: translate(-50%, -50%) perspective(900px) rotateY(-24deg) scaleY(-1);
+  opacity: 0.22; filter: blur(1.5px);
+  -webkit-mask-image: linear-gradient(0deg, #000 0%, transparent 70%);
+  mask-image: linear-gradient(0deg, #000 0%, transparent 70%);
+}
+
+/* --------------------------------------------------------------------------
+   5. Avances de servicios en la home
+   -------------------------------------------------------------------------- */
+.service-preview { display: grid; gap: clamp(2.5rem, 2rem + 3vw, 5rem); align-items: center; }
+@media (min-width: 1024px) { .service-preview { grid-template-columns: 1fr 1fr; } }
+.service-preview .label { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 1.25rem; }
+.service-preview h2 { text-transform: uppercase; margin-bottom: 1.25rem; }
+.service-preview p + p { margin-top: 1rem; }
+.service-preview .btn-group { margin-top: 2rem; }
+
+/* --------------------------------------------------------------------------
+   6. CTA final
+   -------------------------------------------------------------------------- */
+.cta-final { position: relative; isolation: isolate; text-align: center; overflow: hidden; }
+.cta-final::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(201,162,74,0.14), transparent 70%);
+}
+.cta-final .icon-logo { width: 64px; margin: 0 auto 1.75rem; }
+.cta-final h2 { text-transform: uppercase; margin-bottom: 1.25rem; }
+.cta-final p { max-width: 560px; margin: 0 auto 2.25rem; }
+.cta-final .btn-group { justify-content: center; }
+/* Variante con formulario (home): alineado a la izquierda */
+.cta-final .contact-grid { text-align: left; }
+.cta-final .contact-info p { margin: 0 0 1rem; max-width: 46ch; }
+.cta-final .form p { margin: 0; max-width: none; }
+.cta-final .contact-grid .btn-group { justify-content: flex-start; }

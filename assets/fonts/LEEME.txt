@@ -1,0 +1,2 @@
+Las tipografías se cargan desde Google Fonts (display=swap).
+Si se prefiere alojarlas en local (RGPD), descarga los .woff2 aquí y sustituye el <link> de Google Fonts por @font-face en base.css.
